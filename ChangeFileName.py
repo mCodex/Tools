@@ -30,11 +30,14 @@ def changeFileName(aux):
                 if (filename_zero == aux[i][0]):
                     os.rename(fullpath, folderToRedirect+"/"+aux[i][1] + fileext)
 
-readFile()
 
-for i in range(len(columns[2])):
-    vector.append ([columns[0][i], columns[1][i]])
+if __name__ == "__main__":
+	
+	readFile()
 
-aux = sorted(vetor, key= lambda vetor: vetor[0])
+	for i in range(len(columns[2])):
+	    vector.append ([columns[0][i], columns[1][i]])
 
-changeFileName(aux)
+	aux = sorted(vetor, key= lambda vetor: vetor[0])
+
+	changeFileName(aux)

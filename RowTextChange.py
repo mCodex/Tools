@@ -8,7 +8,7 @@ aux = defaultdict(list)
 vector =[]
 
 def readFile():
-	csvName = "sabin.csv" #Put here the CSV name
+	csvName = ".csv" #Put here the CSV name
 	with open(csvName) as f:
 		reader = csv.reader(f,delimiter=",") 
 		#reader.next()
@@ -16,17 +16,19 @@ def readFile():
 			for (i,v) in enumerate(row): 
 				columns[i].append(v)
 
-readFile()
 
-out_file = open("/home/mateus/Área de trabalho/teste.csv", "wt")
-writer = csv.writer(out_file)
+if __name__ == "__main__":
+	readFile()
 
-for i in range(0, 30):
-	for j in range(0,len(columns[0])):
-		if (columns[i][j] == "X"):
-			columns[i][j] = columns[i][0]
-	writer.writerow(columns[i])
+	out_file = open("test.csv", "wt") #The name of out file
+	writer = csv.writer(out_file)
 
-out_file.close()
+	for i in range(0, 30):
+		for j in range(0,len(columns[0])):
+			if (columns[i][j] == "X"): #Type in " " the text you want to change. I.E the script will change the row that contains X
+				columns[i][j] = columns[i][0]
+		writer.writerow(columns[i])
+
+	out_file.close()
 
 
